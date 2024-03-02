@@ -9,14 +9,16 @@ function makeLabel(x, y,word, fontSize, scene, isInteractive){
     text.y=y;
     scene.addChild(text);
     text.interactive =isInteractive;
+    return text;
+}
 
-    if(isInteractive){
-        text.buttonMode =true;
-        text.on('click',function(){
-            
-        });
-    }
-    
+//for interactive texts only-BUTTON
+function makeButton(text,x,y,word, current, nextScene){
+    text = makeLabel(x, y, word, 32, current, true);
+    text.on('click', function(){
+        current.visible =false;
+        nextScene.visible =true;
+    })
 }
 
 
