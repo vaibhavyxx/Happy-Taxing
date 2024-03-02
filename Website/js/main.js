@@ -17,11 +17,15 @@ const app = new PIXI.Application({
     height:720,
     backgroundColor: 0xfabedc,
 });
-let gameWindow = document.getElementById('game');
-gameWindow.appendChild(app.view);
+document.body.appendChild(app.view);
 //dimension
 const screenWidth = app.screen.width;
 const screenHeight = app.screen.height;
+
+// loader
+//const loader = PIXI.Loader.shared;
+
+
 
 //label
 makeLabel(screenWidth/2 -150,screenHeight/2-100, "Happy Taxing!", 48, menu);
@@ -39,28 +43,3 @@ function setup(){
     game.visible=false;
 }
 
-//makes the text and placeholder buttons FOR NOW
-function makeLabel(x, y,word, fontSize, scene, isInteractive){
-    let text = new PIXI.Text(word,
-    {fontFamily : 'Arial', 
-    fontSize: fontSize, 
-    fill : 0xff1010, 
-    align : 'center'});
-    text.x=x;
-    text.y=y;
-    scene.addChild(text);
-    text.interactive =isInteractive;
-
-    if(isInteractive){
-        text.buttonMode =true;
-        text.on('click',function(){
-            
-        });
-    }
-    
-}
-
-
-function buildings(){
-    //work = new Building(20, 200, 1, 1, menu, game);
-}
