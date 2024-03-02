@@ -16,8 +16,8 @@ let menu = new PIXI.Container();
 let game = new PIXI.Container(); 
 
 const app = new PIXI.Application({
-    width:1024,
-    height:768,
+    width:1280,
+    height:720,
     backgroundColor: 0xfabedc,
 });
 let gameWindow = document.getElementById('game');
