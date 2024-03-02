@@ -7,6 +7,9 @@ let home;
 let IRS;
 let w2Scene;
 
+//buttons
+let play, back;
+
 //scenes
 let fin = new PIXI.Container();    
 let menu = new PIXI.Container();   
@@ -24,7 +27,9 @@ const screenWidth = app.screen.width;
 const screenHeight = app.screen.height;
 
 //label
-makeLabel(screenWidth/2 -150,screenHeight/2-100, "Happy Taxing!", 48, menu);
+const heading= makeLabel(screenWidth/2 -150,screenHeight/2-100, "Happy Taxing!", 48, menu);
+makeButton(play, 100, screenHeight-100, "play",menu, game);
+makeButton(back, 700, screenHeight-100, "back",game,menu);
 buildings();
 setup();
 
@@ -50,14 +55,16 @@ function makeLabel(x, y,word, fontSize, scene, isInteractive){
     text.y=y;
     scene.addChild(text);
     text.interactive =isInteractive;
+    return text;
+}
 
-    if(isInteractive){
-        text.buttonMode =true;
-        text.on('click',function(){
-            
-        });
-    }
-    
+//for interactive texts only-BUTTON
+function makeButton(text,x,y,word, current, nextScene){
+    text = makeLabel(x, y, word, 32, current, true);
+    text.on('click', function(){
+        current.visible =false;
+        nextScene.visible =true;
+    })
 }
 
 
