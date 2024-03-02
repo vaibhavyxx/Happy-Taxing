@@ -1,11 +1,12 @@
-class Building extends PIXI.Sprite{
-    constructor(x,y, tex, scaleX, scaleY,current, next){
+class Building extends PIXI.Graphics{
+    constructor(x,y, scale, tex,current, next){
       super(tex);
+      //graphics.drawCircle(244);
       this.x=x;
       this.y =y;
-      this.scale.x = scaleX;
-      this.scale.y = scaleY
-      scene.addChild(this);
+      //this.scale.x = scaleX;
+      //this.scale.y = scaleY
+      current.addChild(this);
       this.interactive =true;
 
       this.on('click', function(){
@@ -14,3 +15,4 @@ class Building extends PIXI.Sprite{
       })
     }
   }
+
