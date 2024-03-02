@@ -6,3 +6,4 @@ const app = new PIXI.Application({
 });
 let game = document.getElementById('game');
 game.appendChild(app.view);
+
