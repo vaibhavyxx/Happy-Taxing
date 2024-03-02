@@ -39,8 +39,8 @@ function setup(){
     game.visible=false;
 }
 
-//makes the text
-function makeLabel(x, y,word, fontSize, scene){
+//makes the text and placeholder buttons FOR NOW
+function makeLabel(x, y,word, fontSize, scene, isInteractive){
     let text = new PIXI.Text(word,
     {fontFamily : 'Arial', 
     fontSize: fontSize, 
@@ -49,7 +49,17 @@ function makeLabel(x, y,word, fontSize, scene){
     text.x=x;
     text.y=y;
     scene.addChild(text);
+    text.interactive =isInteractive;
+
+    if(isInteractive){
+        text.buttonMode =true;
+        text.on('click',function(){
+            
+        });
+    }
+    
 }
+
 
 function buildings(){
     //work = new Building(20, 200, 1, 1, menu, game);
