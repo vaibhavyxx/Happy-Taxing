@@ -23,5 +23,5 @@ function makeButton(text,x,y,word, current, nextScene){
 
 
 function buildings(){
-    //work = new Building(20, 200, 1, 1, menu, game);
+    work = new Work(menu, 200, 1, 1, 1);
 }

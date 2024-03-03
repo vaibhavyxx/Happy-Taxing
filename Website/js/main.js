@@ -33,20 +33,24 @@ const screenHeight = app.screen.height;
 loader.load((loader, resources) =>{
     //home = new PIXI.Sprite(resources.home.texture);
     //home = new Player(resources.home.texture, menu);
-    const homeTex = resources.home.texture;
-    home = new PIXI.Sprite(homeTex);
+    //const homeTex = resources.home.texture;
+    home = new PIXI.Sprite(resources.home.texture);
     home.x=90;
     home.y=100;
     menu.addChild(home);
     //app.stage.appendChild(home);
+
 });
 
 //label
 const heading= makeLabel(screenWidth/2 -150,screenHeight/2-100, "Happy Taxing!", 48, menu);
 makeButton(play, 100, screenHeight-100, "play",menu, game);
 makeButton(back, 700, screenHeight-100, "back",game,menu);
-buildings();
+//buildings();
+
+
 setup();
+
 
 //sets the app up
 function setup(){
@@ -62,32 +66,3 @@ function setup(){
 
    menu.addChild(home);
 }
-
-
-
-/*
-import * as PIXI from 'pixi.js';
-
-const app = new PIXI.Application({ background: '#1099bb', resizeTo: window });
-
-document.body.appendChild(app.view);
-
-// Start loading right away and create a promise
-const texturePromise = PIXI.Assets.load('https://pixijs.com/assets/bunny.png');
-
-// When the promise resolves, we have the texture!
-texturePromise.then((resolvedTexture) =>
-{
-    // create a new Sprite from the resolved loaded Texture
-    const bunny = PIXI.Sprite.from(resolvedTexture);
-
-    // center the sprite's anchor point
-    bunny.anchor.set(0.5);
-
-    // move the sprite to the center of the screen
-    bunny.x = app.screen.width / 2;
-    bunny.y = app.screen.height / 2;
-
-    app.stage.addChild(bunny);
-});
-*/

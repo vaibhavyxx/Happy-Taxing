@@ -22,5 +22,24 @@ class Building extends PIXI.Graphics{
       this.x=30;
       this.y-90;
       scene.addChild(this);
+      wage =0;
+      hoursWorked=0;
+    }
+  }
+
+  class Work extends PIXI.Sprite{
+    constructor( scene, x, y,scale){
+      //super(tex);
+      this.x =x;
+      this.y=y;
+      this.scale.x =scale;
+      this.scale.y = scale;
+      this.interactive =true;
+      this.buttonMode = true;
+    }
+
+    Pay(wage) {
+      wage = 15* 40* 4;
+      console.log('Player earns '+ wage+' dollars but due to taxes they get,'+ wage-300);
     }
   }
