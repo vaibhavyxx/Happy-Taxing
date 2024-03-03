@@ -26,7 +26,7 @@ const screenWidth = app.screen.width;
 const screenHeight = app.screen.height;
 
 // loader
-//const loader = PIXI.Loader.shared;
+const homeTexture = PIXI.Assets.load('images/home.jpg');
 
 
 
@@ -46,5 +46,35 @@ function setup(){
     //menu is visible only
     fin.visible= false;
     game.visible=false;
+    const home = PIXI.Sprite.from(homeTexture);
+    menu.addChild(home);
 }
 
+
+
+/*
+import * as PIXI from 'pixi.js';
+
+const app = new PIXI.Application({ background: '#1099bb', resizeTo: window });
+
+document.body.appendChild(app.view);
+
+// Start loading right away and create a promise
+const texturePromise = PIXI.Assets.load('https://pixijs.com/assets/bunny.png');
+
+// When the promise resolves, we have the texture!
+texturePromise.then((resolvedTexture) =>
+{
+    // create a new Sprite from the resolved loaded Texture
+    const bunny = PIXI.Sprite.from(resolvedTexture);
+
+    // center the sprite's anchor point
+    bunny.anchor.set(0.5);
+
+    // move the sprite to the center of the screen
+    bunny.x = app.screen.width / 2;
+    bunny.y = app.screen.height / 2;
+
+    app.stage.addChild(bunny);
+});
+*/
