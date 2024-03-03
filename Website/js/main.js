@@ -10,6 +10,10 @@ let w2Scene;
 //buttons
 let play, back;
 
+const sprites = {};
+const loader = new PIXI.Loader;
+loader.add('home', "images/home.jpg");
+
 //scenes
 let fin = new PIXI.Container();    
 let menu = new PIXI.Container();   
@@ -25,23 +29,23 @@ document.body.appendChild(app.view);
 const screenWidth = app.screen.width;
 const screenHeight = app.screen.height;
 
-// loader
-const homeTexture = PIXI.Assets.load('images/home.jpg');
-
-//shapes
-home = new PIXI.Graphics();
-home.beginFill(0xFFFF00);
-home.lineStyle(5, 0xFF0000);
-home.drawRect(0, 0, 90, 100);
-menu.addChild(home);
-
+//loading tex
+loader.load((loader, resources) =>{
+    //home = new PIXI.Sprite(resources.home.texture);
+    //home = new Player(resources.home.texture, menu);
+    const homeTex = resources.home.texture;
+    home = new PIXI.Sprite(homeTex);
+    home.x=90;
+    home.y=100;
+    menu.addChild(home);
+    //app.stage.appendChild(home);
+});
 
 //label
 const heading= makeLabel(screenWidth/2 -150,screenHeight/2-100, "Happy Taxing!", 48, menu);
 makeButton(play, 100, screenHeight-100, "play",menu, game);
 makeButton(back, 700, screenHeight-100, "back",game,menu);
 buildings();
-
 setup();
 
 //sets the app up
@@ -53,8 +57,10 @@ function setup(){
     //menu is visible only
     fin.visible= false;
     game.visible=false;
-    const home = PIXI.Sprite.from(homeTexture);
-    menu.addChild(home);
+   // const home = PIXI.Sprite.from(homeTexture);
+   // menu.addChild(home);
+
+   menu.addChild(home);
 }
 
 
