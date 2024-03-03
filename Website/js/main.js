@@ -28,6 +28,12 @@ const screenHeight = app.screen.height;
 // loader
 //const loader = PIXI.Loader.shared;
 
+//shapes
+home = new PIXI.Graphics();
+home.beginFill(0xFFFF00);
+home.lineStyle(5, 0xFF0000);
+home.drawRect(0, 0, 90, 100);
+menu.addChild(home);
 
 
 //label
@@ -35,6 +41,7 @@ const heading= makeLabel(screenWidth/2 -150,screenHeight/2-100, "Happy Taxing!",
 makeButton(play, 100, screenHeight-100, "play",menu, game);
 makeButton(back, 700, screenHeight-100, "back",game,menu);
 buildings();
+
 setup();
 
 //sets the app up
@@ -48,3 +55,6 @@ function setup(){
     game.visible=false;
 }
 
+function hitArea(shape){
+
+}

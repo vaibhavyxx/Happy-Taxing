@@ -16,3 +16,9 @@ class Building extends PIXI.Graphics{
     }
   }
 
+  class Player extends PIXI.Graphics{
+    constructor(x,y, scale, graphics){
+      graphics.beginFill(0xFFF00);
+      drawRect(x, y, 10, 10);
+    }
+  }
